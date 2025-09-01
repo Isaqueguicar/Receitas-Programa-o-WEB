@@ -1,4 +1,5 @@
 #codigo html
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -58,6 +59,7 @@
 </html>
 
 # codigo css
+
 /* versos comuns */
 p.verso {
    color: blue;
