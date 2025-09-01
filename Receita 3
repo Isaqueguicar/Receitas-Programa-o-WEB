@@ -1,0 +1,85 @@
+#codigo html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Mostrar Cerveja com Fade</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <!-- div que contém o botão (sempre visível) -->
+    <div id="divBotao">
+        <button id="botaoCarregar">Carregando cervejas...</button>
+    </div>
+
+    <!-- div que exibirá o nome da cerveja -->
+    <div id="divCerveja" class="fade"></div>
+
+    <script>
+        const botao = document.getElementById("botaoCarregar");
+        const divCerveja = document.getElementById("divCerveja");
+        let mostrando = false; // controla se o nome está visível
+
+        botao.addEventListener("click", () => {
+            if (!mostrando) {
+                // fade in: primeiro coloca o conteúdo mas opacidade 0
+                divCerveja.innerHTML = "<h1>Guinness</h1>";
+                divCerveja.style.opacity = 0;
+                divCerveja.style.display = "block";
+
+                // efeito fade in
+                setTimeout(() => {
+                    divCerveja.style.opacity = 1;
+                }, 50);
+
+                mostrando = true;
+            } else {
+                // fade out: reduz opacidade para 0
+                divCerveja.style.opacity = 0;
+
+                // depois de 500ms remove o conteúdo e esconde o div
+                setTimeout(() => {
+                    divCerveja.innerHTML = "";
+                    divCerveja.style.display = "none";
+                }, 500);
+
+                mostrando = false;
+            }
+        });
+    </script>
+</body>
+</html>
+#codigo css 
+/* botão centralizado */
+#divBotao {
+    margin-bottom: 20px;
+}
+
+/* div da cerveja */
+#divCerveja {
+    text-align: center;
+    font-size: 2em;
+    color: #2b7a78;
+    /* inicialmente escondido */
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease; /* fade in/fade out */
+    min-height: 60px; /* evita "pular" layout ao exibir */
+}
+
+/* estilo do botão */
+#botaoCarregar {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    background-color: #0b6fb6;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+#botaoCarregar:hover {
+    background-color: #084a86;
+}
