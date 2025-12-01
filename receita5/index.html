@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">      
+      <link rel="stylesheet" href="style.css">
+   </head>
+   
+   <body>
+      <div id="meu amor">
+        <a href="#" id="carregar">Carregando letras...</a>
+      </div>            
+   </body>   
+
+   <script>
+      let letras = ["A", "B", "C", "D", "E", "F", "G", "H"]
+      
+      const carregarDiv = (ltr) => {
+        const div = document.getElementById("meu amor")
+        const letrasHtml = ltr.map( item => `<tr><td class="letra">${item}</td></tr>` ) 
+        let conteudo = `
+          <a href="#" id="carregar" style="display:none;">Carregar letras...</a>
+          <table id="tabelaLetras">
+            ${letrasHtml.join("")}
+          </table>
+          <a href="#" id="ordenar">Ordenar</a>
+          <a href="#" id="embaralhar">Embaralhar</a>
+        `;
+        div.innerHTML = conteudo
+
+        let botaoOrdenar = document.getElementById('ordenar');
+        botaoOrdenar.addEventListener('click', ordenar);
+
+        let botaoEmbaralhar = document.getElementById('embaralhar');
+        botaoEmbaralhar.addEventListener('click', embaralhar);
+      }
+
+      const ordenar = () => {
+        letras.sort()
+        carregarDiv(letras)
+      }
+
+      const embaralhar = () => {
+        letras.sort(() => Math.random() - 0.5);
+        carregarDiv(letras);
+      }
+      
+      let carregar = document.getElementById("carregar")
+      carregar.addEventListener("click", () => carregarDiv(letras))                 
+   </script>
+</html>

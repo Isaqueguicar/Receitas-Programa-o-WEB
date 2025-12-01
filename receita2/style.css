@@ -1,0 +1,22 @@
+p.verso{
+    color: blue;
+}
+
+p.mote{
+    color: red;
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    text-decoration: none;
+    color: gray;
+}
+
+div>img.poeta{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}

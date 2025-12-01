@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">    
+      <link rel="stylesheet" href="style.css">  
+   </head>
+   
+   <body>
+      <div id="meu-amor">
+        <button id="botaoCarregar">Carregar cervejas...</button>
+      </div>            
+   </body>   
+   
+   <script>
+      let cervejas = ["Guiness", "Desperados", "Becks"]
+    
+      function transformar(item){
+        return `<tr><td class="cerveja">${item}</td></tr>`
+      }
+
+      function carregarDiv(){
+        let div = document.getElementById("meu-amor");
+        let cervejasHTML = cervejas.map(transformar).join('\n');
+        let conteudo = `
+          <button id="botaoCarregar" style="display:none;">Carregar cervejas...</button>
+          <table id="tabelaCervejas">
+            ${cervejasHTML}
+          </table>
+          <button id="ordenar">Ordenar cervejas</button>
+          <button id="embaralhar">Embaralhar cervejas</button>
+        `;
+        
+        div.innerHTML = conteudo;
+
+        let botaoOrdenar = document.getElementById('ordenar');
+        botaoOrdenar.addEventListener('click', ordenarCervejas);
+
+        let botaoEmbaralhar = document.getElementById('embaralhar');
+        botaoEmbaralhar.addEventListener('click', embaralharCervejas);
+      }
+
+      function ordenarCervejas(){
+        cervejas.sort();
+        carregarDiv();
+      }
+
+      function embaralharCervejas(){
+        cervejas.sort(() => Math.random() - 0.5);
+        carregarDiv();
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        let botao = document.getElementById('botaoCarregar');
+        botao.addEventListener('click', function() {
+          carregarDiv();
+          botao.style.display = "none";
+        });
+      });
+    </script>
+</html>

@@ -1,0 +1,13 @@
+.cerveja{
+    color: rgb(175, 101, 4);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+#tabelaCervejas{
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+#tabelaCervejas>td,tr{
+    border: 1px solid black;
+}

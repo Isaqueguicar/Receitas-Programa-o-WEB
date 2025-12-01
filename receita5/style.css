@@ -1,0 +1,28 @@
+.letra{
+    color: rgb(175, 101, 4);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+#tabelaLetras{
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+#tabelaLetras>td,tr{
+    border: 1px solid black;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(255, 147, 46);
+    border: 1px solid rgb(170, 82, 0);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+a:hover{
+    background-color: rgb(255, 163, 76);
+    border: 1px solid rgb(216, 107, 5);
+}
