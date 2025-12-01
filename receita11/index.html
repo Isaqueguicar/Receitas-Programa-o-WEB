@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>ReceitaReact - Classes</title>      
+   </head>
+
+   <body>
+      <div id="app"></div>
+
+      <script src="react_examples/libs/react.js"></script>
+      <script src="react_examples/libs/react-dom.js"></script>
+      <script src="react_examples/libs/babel.js"></script>
+
+      <script type="text/babel">
+
+         class TabelaBebidas extends React.Component {
+            render() {
+               return (
+                  <React.Fragment>
+                     <h1>{this.props.titulo}</h1>
+                     <table id="tabela" border="1">
+                        <thead>
+                           <tr>
+                              <th>Nome</th>
+                              <th>Marca</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>Fanta uva</td>
+                              <td>Fanta</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </React.Fragment>
+               )
+            }
+         }
+
+         class ComponenteExtra extends React.Component {
+            render() {
+               return (
+                  <div style={{marginTop: '20px', padding: '10px', border: '1px solid #ccc'}}>
+                     <h2>Informações Adicionais</h2>
+                     <p>Feito por LuizFelixDev</p>
+                  </div>
+               )
+            }
+         }
+         
+         class App extends React.Component {
+            render() {
+               return (
+                  <React.Fragment>
+                     <TabelaBebidas titulo="Tabela Refri"/>
+                     <hr/>
+                     <TabelaBebidas titulo="Tabela Repetida"/>
+                     <hr/>
+                     <ComponenteExtra/>
+                  </React.Fragment>
+               );
+            }
+         }
+
+         ReactDOM.render(
+            <App/>,
+            document.getElementById("app")
+         )
+      </script>
+
+   </body>
+</html>
